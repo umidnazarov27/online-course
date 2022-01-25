@@ -1,0 +1,21 @@
+$color: #eee;
+
+body {
+  background-color: $color;
+}
+
+h1 {
+  color: #333;
+}
+
+a {
+  font-family: Arial, sans-serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: bold;
+  background-image: url('example.png');
+  background-color: red;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
