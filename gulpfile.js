@@ -42,7 +42,7 @@ let path = {
 };
 
 /* Tasks */
-function BrowserSync (done) {
+function BrowserSync(done) {
   browserSync.init({
     server: {
       baseDir: './dist/',
@@ -51,77 +51,78 @@ function BrowserSync (done) {
   });
 }
 
-function BrowserSyncReload (done) {
+function BrowserSyncReload(done) {
   browserSync.reload();
 }
 
 
-function html () {
+function html() {
   panini.refresh();
   return src(path.src.html, { base: 'src/' })
-      .pipe(plumber())
-      .pipe(panini({
-        root: 'src/',
-        layouts: 'src/tpl/layouts/',
-        partials: 'src/tpl/partials/',
-        helpers: 'src/tpl/helpers/',
-        data: 'src/tpl/data/'
-      }))
-      .pipe(dest(path.build.html))
-      .pipe(browserSync.stream());
+    .pipe(plumber())
+    .pipe(panini({
+      root: 'src/',
+      layouts: 'src/tpl/layouts/',
+      partials: 'src/tpl/partials/',
+      helpers: 'src/tpl/helpers/',
+      data: 'src/tpl/data/'
+    }))
+    .pipe(dest(path.build.html))
+    .pipe(browserSync.stream());
 }
 
-function css () {
+function css() {
   return src(path.src.css, { base: 'src/assets/sass/' })
-      .pipe(plumber())
-      .pipe(sass())
-      .pipe(autoprefixer({
-        Browserslist: ['last 8 version'],
-        cascade: true
-      }))
-      .pipe(cssBeautify({
-        indent: '  '
-      }))
-      .pipe(dest(path.build.css))
-      .pipe(cssNano({
-        zIndex: false,
-        discardComments: {
-          removeAll: true
-        }
-      }))
-      .pipe(stripCssComments())
-      .pipe(rename({
-        suffix: '.min',
-        extname: '.css'
-      }))
-      .pipe(dest(path.build.css));
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(autoprefixer({
+      Browserslist: ['last 8 version'],
+      cascade: true
+    }))
+    .pipe(cssBeautify({
+      indent: '  '
+    }))
+    .pipe(dest(path.build.css))
+    .pipe(cssNano({
+      zIndex: false,
+      discardComments: {
+        removeAll: true
+      }
+    }))
+    .pipe(stripCssComments())
+    .pipe(rename({
+      suffix: '.min',
+      extname: '.css'
+    }))
+    .pipe(dest(path.build.css))
+    .pipe(browserSync.stream());
 }
 
-function js () {
+function js() {
   return src(path.src.js, { base: './src/assets/js/' })
-      .pipe(plumber())
-      .pipe(rigger())
-      .pipe(gulp.dest(path.build.js))
-      .pipe(uglify())
-      .pipe(rename({
-        suffix: '.min',
-        extname: '.js'
-      }))
-      .pipe(dest(path.build.js))
-      .pipe(browserSync.stream());
+    .pipe(plumber())
+    .pipe(rigger())
+    .pipe(gulp.dest(path.build.js))
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: '.min',
+      extname: '.js'
+    }))
+    .pipe(dest(path.build.js))
+    .pipe(browserSync.stream());
 }
 
-function images () {
+function images() {
   return src(path.src.img)
-      .pipe(imageMin())
-      .pipe(dest(path.build.img));
+    .pipe(imageMin())
+    .pipe(dest(path.build.img));
 }
 
-function clean () {
+function clean() {
   return del(path.clean);
 }
 
-function watchFiles () {
+function watchFiles() {
   gulp.watch([path.watch.html], html);
   gulp.watch([path.watch.css], css);
   gulp.watch([path.watch.js], js);
