@@ -1,21 +1,13 @@
-$color: #eee;
+@import 'normalize';
+@import 'variables';
+@import 'font';
+@import 'mixins';
 
-body {
-  background-color: $color;
-}
+// === Partials ===
+@import 'partials/intro';
 
-h1 {
-  color: #333;
-}
-
-a {
-  font-family: Arial, sans-serif;
-  font-style: italic;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: bold;
-  background-image: url('example.png');
-  background-color: red;
-  background-size: cover;
-  background-repeat: no-repeat;
+.container {
+  width: 1250px;
+  padding: 15px;
+  margin: 0 auto;
 }
