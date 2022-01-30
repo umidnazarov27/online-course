@@ -17,6 +17,7 @@ const sass = require('gulp-sass');
 const stripCssComments = require('gulp-strip-css-comments');
 const uglify = require('gulp-uglify');
 const panini = require('panini');
+const svgSprite = require('gulp-svg-sprite');
 
 /* Paths */
 let path = {
@@ -30,7 +31,9 @@ let path = {
     html: 'src/*.html',
     js: 'src/assets/js/*.js',
     css: 'src/assets/sass/style.scss',
-    img: 'src/assets/img/**/*.{jpg, png, svg, gif, ico}'
+    img: 'src/assets/img/**/*.{jpg, png, gif, ico}',
+    svg: 'src/assets/img/svg-icons/**/*.svg'
+
   },
   watch: {
     html: 'src/**/*.html',
@@ -42,7 +45,7 @@ let path = {
 };
 
 /* Tasks */
-function BrowserSync(done) {
+function BrowserSync (done) {
   browserSync.init({
     server: {
       baseDir: './dist/',
@@ -51,12 +54,12 @@ function BrowserSync(done) {
   });
 }
 
-function BrowserSyncReload(done) {
+function BrowserSyncReload (done) {
   browserSync.reload();
 }
 
 
-function html() {
+function html () {
   panini.refresh();
   return src(path.src.html, { base: 'src/' })
     .pipe(plumber())
@@ -71,7 +74,7 @@ function html() {
     .pipe(browserSync.stream());
 }
 
-function css() {
+function css () {
   return src(path.src.css, { base: 'src/assets/sass/' })
     .pipe(plumber())
     .pipe(sass())
@@ -98,7 +101,7 @@ function css() {
     .pipe(browserSync.stream());
 }
 
-function js() {
+function js () {
   return src(path.src.js, { base: './src/assets/js/' })
     .pipe(plumber())
     .pipe(rigger())
@@ -112,17 +115,30 @@ function js() {
     .pipe(browserSync.stream());
 }
 
-function images() {
+function images () {
   return src(path.src.img)
     .pipe(imageMin())
     .pipe(dest(path.build.img));
 }
 
-function clean() {
+function svgToSprite () {
+  return gulp.src(path.src.svg)
+    .pipe(svgSprite({
+        mode: {
+          stack: {
+            sprite: '../sprite.svg'  //sprite file name
+          }
+        },
+      }
+    ))
+    .pipe(gulp.dest(path.build.img));
+}
+
+function clean () {
   return del(path.clean);
 }
 
-function watchFiles() {
+function watchFiles () {
   gulp.watch([path.watch.html], html);
   gulp.watch([path.watch.css], css);
   gulp.watch([path.watch.js], js);
