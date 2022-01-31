@@ -145,7 +145,7 @@ function watchFiles () {
   gulp.watch([path.watch.img], images);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images));
+const build = gulp.series(clean, gulp.parallel(html, css, js, images, svgToSprite));
 const watch = gulp.parallel(build, watchFiles, BrowserSync);
 
 
