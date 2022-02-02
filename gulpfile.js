@@ -45,7 +45,7 @@ let path = {
 };
 
 /* Tasks */
-function BrowserSync (done) {
+function BrowserSync(done) {
   browserSync.init({
     server: {
       baseDir: './dist/',
@@ -54,12 +54,12 @@ function BrowserSync (done) {
   });
 }
 
-function BrowserSyncReload (done) {
+function BrowserSyncReload(done) {
   browserSync.reload();
 }
 
 
-function html () {
+function html() {
   panini.refresh();
   return src(path.src.html, { base: 'src/' })
     .pipe(plumber())
@@ -74,7 +74,7 @@ function html () {
     .pipe(browserSync.stream());
 }
 
-function css () {
+function css() {
   return src(path.src.css, { base: 'src/assets/sass/' })
     .pipe(plumber())
     .pipe(sass())
@@ -101,7 +101,7 @@ function css () {
     .pipe(browserSync.stream());
 }
 
-function js () {
+function js() {
   return src(path.src.js, { base: './src/assets/js/' })
     .pipe(plumber())
     .pipe(rigger())
@@ -115,30 +115,30 @@ function js () {
     .pipe(browserSync.stream());
 }
 
-function images () {
+function images() {
   return src(path.src.img)
     .pipe(imageMin())
     .pipe(dest(path.build.img));
 }
 
-function svgToSprite () {
+function svgToSprite() {
   return gulp.src(path.src.svg)
     .pipe(svgSprite({
         mode: {
           stack: {
             sprite: '../sprite.svg'  //sprite file name
           }
-        },
+        }
       }
     ))
     .pipe(gulp.dest(path.build.img));
 }
 
-function clean () {
+function clean() {
   return del(path.clean);
 }
 
-function watchFiles () {
+function watchFiles() {
   gulp.watch([path.watch.html], html);
   gulp.watch([path.watch.css], css);
   gulp.watch([path.watch.js], js);
