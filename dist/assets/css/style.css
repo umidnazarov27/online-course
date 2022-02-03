@@ -368,7 +368,7 @@ h6 {
   line-height: 1.5;
 }
 
-/* === Primary btns === */
+/* === Primary btn === */
 .btn-primary {
   padding: 0 32px;
   font-family: 'Lato', sans-serif;
@@ -382,9 +382,9 @@ h6 {
   cursor: pointer;
 }
 
-/* === Btns with icon === */
-/* === Btns outline === */
-.btns-outline {
+/* === btn with icon === */
+/* === Btn outline === */
+.btn-outline {
   padding: 0 32px;
   font-family: 'Lato', sans-serif;
   font-size: 14px;
@@ -398,16 +398,16 @@ h6 {
   transition: all 0.5s ease;
 }
 
-.btns-outline:hover {
+.btn-outline:hover {
   color: #fff;
   background-color: #FF3F3A;
 }
 
-.btns-outline:active {
+.btn-outline:active {
   background-color: #d30500;
 }
 
-/* === Secondary btns === */
+/* === Secondary btn === */
 .btn-secondary {
   padding: 0 32px;
   font-family: 'Lato', sans-serif;
@@ -450,7 +450,7 @@ h6 {
   background-color: #B3B7BC;
 }
 
-/* === Dark solid btns === */
+/* === Dark solid btn === */
 .btn-dark {
   padding: 0 32px;
   font-family: 'Lato', sans-serif;
@@ -475,7 +475,7 @@ h6 {
   background-color: #1E212C;
 }
 
-/* === White solid btns === */
+/* === White solid btn === */
 .btn-white {
   padding: 0 32px;
   font-family: 'Lato', sans-serif;
@@ -500,7 +500,7 @@ h6 {
   background: #fff;
 }
 
-/* === Btns size === */
+/* === btn size === */
 .btn-size--large {
   padding: 0 40px;
   font-size: 16px;
