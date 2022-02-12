@@ -376,7 +376,7 @@ h6 {
   font-weight: 700;
   line-height: 3;
   color: #fff;
-  background: linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
+  background: linear-gradient(55.95deg, #ff3f3a 0%, #f75e05 100%);
   border-radius: 4px;
   border: none;
   cursor: pointer;
@@ -390,17 +390,17 @@ h6 {
   font-size: 14px;
   font-weight: 700;
   line-height: 3;
-  color: #FF3F3A;
+  color: #ff3f3a;
   background: transparent;
   border-radius: 4px;
-  border: 1px solid #FF3F3A;
+  border: 1px solid #ff3f3a;
   cursor: pointer;
   transition: all 0.5s ease;
 }
 
 .btn-outline:hover {
   color: #fff;
-  background-color: #FF3F3A;
+  background-color: #ff3f3a;
 }
 
 .btn-outline:active {
@@ -415,7 +415,7 @@ h6 {
   font-weight: 700;
   line-height: 3;
   color: #424551;
-  background: #E5E8ED;
+  background: #e5e8ed;
   border-radius: 4px;
   border: none;
   cursor: pointer;
@@ -423,11 +423,11 @@ h6 {
 }
 
 .btn-secondary:hover {
-  background-color: #D7DADD;
+  background-color: #d7dadd;
 }
 
 .btn-secondary:active {
-  background-color: #B3B7BC;
+  background-color: #b3b7bc;
 }
 
 .btn-secondary--outline {
@@ -436,18 +436,18 @@ h6 {
   font-weight: 700;
   line-height: 3;
   background: transparent;
-  border: 1px solid #D7DADD;
+  border: 1px solid #d7dadd;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.5s ease;
 }
 
 .btn-secondary--outline:hover {
-  background-color: #D7DADD;
+  background-color: #d7dadd;
 }
 
 .btn-secondary--outline:active {
-  background-color: #B3B7BC;
+  background-color: #b3b7bc;
 }
 
 /* === Dark solid btn === */
@@ -472,7 +472,7 @@ h6 {
 
 .btn-dark:active {
   color: #fff;
-  background-color: #1E212C;
+  background-color: #1e212c;
 }
 
 /* === White solid btn === */
@@ -496,7 +496,7 @@ h6 {
 }
 
 .btn-white:active {
-  color: #1E212C;
+  color: #1e212c;
   background: #fff;
 }
 
@@ -519,6 +519,60 @@ button[disabled] {
   opacity: 0.5;
 }
 
+input {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #424551;
+  border: 1px solid #9a9ca5;
+  border-radius: 4px;
+}
+
+input::-moz-placeholder {
+  color: #9a9ca5;
+}
+
+input:-ms-input-placeholder {
+  color: #9a9ca5;
+}
+
+input::placeholder {
+  color: #9a9ca5;
+}
+
+input:focus {
+  border-color: red;
+  outline: none;
+  box-shadow: 0px 80px 80px -20px rgba(255, 63, 58, 0.08), 0px 30px 24px -10px rgba(255, 63, 58, 0.05), 0px 12px 10px -6px rgba(255, 63, 58, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+}
+
+input:disabled, input[disabled] {
+  opacity: 0.5;
+  cursor: no-drop;
+}
+
+input .large {
+  padding: 13px 16px;
+  font-size: 16px;
+}
+
+input .small {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+/* TODO 
+  make a selection */
+/* 
+section {
+  .icon {
+    &::after {
+      content: url('../img/sprite.svg#chevron_down');
+      height: 16px;
+      width: 16px;
+      fill: map-get($gray, 800);
+    }
+  }
+} */
 .intro {
   width: 100%;
   height: 100vh;
